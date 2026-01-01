@@ -251,39 +251,41 @@ export default function AstrologyForm({ onSubmit, isLoading }: AstrologyFormProp
         />
       </div>
 
+      {/* Time and Place fields - shown for both paths */}
+      <div className="space-y-2">
+        <label htmlFor="timeOfBirth" className="block text-sm font-medium text-purple-200">
+          Time of Birth <span className="text-yellow-400 text-xs">(Recommended for Lagna & Dasha calculation)</span>
+        </label>
+        <input
+          type="time"
+          id="timeOfBirth"
+          name="timeOfBirth"
+          value={formData.timeOfBirth}
+          onChange={handleChange}
+          className={inputClass}
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor="placeOfBirth" className="block text-sm font-medium text-purple-200">
+          Place of Birth
+        </label>
+        <input
+          type="text"
+          id="placeOfBirth"
+          name="placeOfBirth"
+          value={formData.placeOfBirth}
+          onChange={handleChange}
+          className={inputClass}
+          placeholder="Enter city/town name (e.g., Hyderabad)"
+        />
+      </div>
+
       {!knowsDetails && (
         <>
-          <div className="space-y-2">
-            <label htmlFor="timeOfBirth" className="block text-sm font-medium text-purple-200">
-              Time of Birth <span className="text-yellow-400 text-xs">(Optional - but recommended for accurate results)</span>
-            </label>
-            <input
-              type="time"
-              id="timeOfBirth"
-              name="timeOfBirth"
-              value={formData.timeOfBirth}
-              onChange={handleChange}
-              className={inputClass}
-            />
-            <p className="text-xs text-purple-400">
-              Without birth time, we will show all possible Nakshatras for that day
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="placeOfBirth" className="block text-sm font-medium text-purple-200">
-              Place of Birth
-            </label>
-            <input
-              type="text"
-              id="placeOfBirth"
-              name="placeOfBirth"
-              value={formData.placeOfBirth}
-              onChange={handleChange}
-              className={inputClass}
-              placeholder="Enter city/town name (e.g., Hyderabad)"
-            />
-          </div>
+          <p className="text-xs text-purple-400 -mt-4">
+            Without birth time, we will show all possible Nakshatras for that day
+          </p>
 
           <button
             type="button"
